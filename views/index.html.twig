@@ -9,8 +9,8 @@
 <div class = "all-stores">
 {% if all_stores is not empty %}
     <ul>
-    {% for store in stores %}
-        <li><a href="/store/{{store.getId}}">{{store.getName}}</li>
+    {% for store in all_stores %}
+        <li><a href="/store/{{store.getId}}">{{store.getName}}</a></li>
     {% endfor %}
     </ul>
 {% endif %}
@@ -18,8 +18,8 @@
 <div class = "all-brands">
 {% if all_brands is not empty %}
     <ul>
-    {% for brand in brands %}
-        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</li>
+    {% for brand in all_brands %}
+        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</a></li>
     {% endfor %}
     </ul>
 {% endif %}
