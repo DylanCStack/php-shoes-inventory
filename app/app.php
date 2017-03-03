@@ -88,5 +88,11 @@
         return $app->redirect("/brand/".$id);
     });
 
+    $app->delete('/delete_brand/{id}', function ($id) use ($app) {
+        $brand = Brand::find($id);
+        $brand->delete();
+        return $app->redirect("/brands");
+    });
+
     return $app;
 ?>
