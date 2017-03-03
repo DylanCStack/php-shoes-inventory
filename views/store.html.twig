@@ -19,10 +19,14 @@
 </div>
 
 <form class="add-brand-to-store" action="/assign_brand/{{store.getId}}">
-    <h4>Add to what brands this store carries</h4>
+    <h4>Add to what brands are carried by {{store.getName}}</h4>
     <div class = "form-group">
         <label for="name">Name of brand:</label>
-        <input type="text" name="name">
+        <select name = "brand">
+        {% for brand in all_brands %}
+            <option value="brand.getId">{{brand.getName}}</option>
+        {% endfor %}
+        </select>
     </div>
     <button class="btn btn-success btn-xs" type="submit">Assign</button>
 </form>
