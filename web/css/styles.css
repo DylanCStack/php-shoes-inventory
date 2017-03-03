@@ -2,5 +2,19 @@ form {
     border: 2px double lightgrey;
     margin-bottom: 25px;
     padding:10px;
-    max-width: 40%;
+    max-width: 46%;
+}
+
+.assign, .add-store {
+    float:left;
+    width: 46%;
+}
+
+.add, .add-brand {
+    float:right;
+    width: 46%;
+}
+
+hr {
+    clear:both;
 }
