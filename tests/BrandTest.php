@@ -34,6 +34,21 @@
             //Assert
             $this->assertEquals([$new_brand], $result);
         }
+
+        function test_find()
+        {
+            //Arrange
+            $name = "Y3";
+            $id = null;
+            $new_brand = new Brand($name, $id);
+            $new_brand->save();
+
+            //Act
+            $result = Brand::find($new_brand->getId());
+
+            //Assert
+            $this->assertEquals($new_brand, $result);
+        }
     }
 
 ?>
