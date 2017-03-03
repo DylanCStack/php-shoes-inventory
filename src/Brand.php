@@ -43,6 +43,22 @@
             $GLOBALS["DB"]->exec("UPDATE brands SET name = '{$this->getName()}' WHERE id = {$this->getId()};");
         }
 
+        function addStore($id)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$this->getId()}, {$id});");
+        }
+
+        function getStores()
+        {
+            $returned_stores = $GLOBALS['DB']->query(
+            "SELECT stores.* FROM brands
+            JOIN brands_stores ON (brands_stores.brand_id = brands.id)
+            JOIN stores ON (stores.id = brands_stores.store_id)
+            WHERE brands.id = {$this->getId()};");
+
+            return $returned_stores->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Store", ['name', 'id']);
+        }
+
         static function find($id)
         {
             $returned_brand = $GLOBALS['DB']->query("SELECT * FROM brands WHERE id={$id};");

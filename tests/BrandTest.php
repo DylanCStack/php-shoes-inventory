@@ -84,6 +84,28 @@
             $result = Brand::getAll();
             $this->assertEquals([$new_brand2], $result);
         }
+
+        function test_getBrands()
+        {
+            //Arrange
+            $name2 = "Snakey Sneaks";
+            $id2 = null;
+            $new_brand = new Brand($name2, $id2);
+            $new_brand->save();
+
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+
+            //Act
+            $new_brand->addStore($new_store->getId());
+            $result = $new_brand->getStores();
+
+            //Assert
+            $this->assertEquals([$new_store], $result);
+        }
     }
 
 ?>
