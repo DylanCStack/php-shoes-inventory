@@ -66,6 +66,25 @@
             $this->assertEquals("Footlocker", $result);
         }
 
+        function test_delete()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+            $name2 = "Footlocker";
+            $id2 = null;
+            $new_store2 = new Store($name2, $id2);
+            $new_store2->save();
+            //Act
+            $new_store->delete();
+            //Assert
+            $result = Store::getAll();
+            $this->assertEquals([$new_store2], $result);
+        }
+
 
     }
 
