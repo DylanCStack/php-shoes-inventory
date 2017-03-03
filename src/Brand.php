@@ -31,6 +31,13 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function update($new_name)
+        {
+            $this->setName($new_name);
+
+            $GLOBALS["DB"]->exec("UPDATE brands SET name = '{$this->getName()}' WHERE id = {$this->getId()};");
+        }
+
         static function find($id)
         {
             $returned_brand = $GLOBALS['DB']->query("SELECT * FROM brands WHERE id={$id};");

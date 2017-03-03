@@ -49,6 +49,22 @@
             //Assert
             $this->assertEquals($new_brand, $result);
         }
+
+        function test_update()
+        {
+            //Arrange
+            $name = "Y3";
+            $id = null;
+            $new_brand = new Brand($name, $id);
+            $new_brand->save();
+
+            //Act
+            $new_name = "Snakey Sneaks";
+            $new_brand->update($new_name);
+            //Assert
+            $result = Brand::find($new_brand->getId())->getName();
+            $this->assertEquals("Snakey Sneaks", $result);
+        }
     }
 
 ?>
