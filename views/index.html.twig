@@ -33,7 +33,7 @@
     <h4>Add a store to be tracked</h4>
     <div class = "form-group">
         <label for="name">Name of store:</label>
-        <input class="form-control" type="text" name="name">
+        <input required class="form-control" type="text" name="name">
     </div>
     <button class="btn btn-success btn-xs" type="submit">Add</button>
 </form>
@@ -42,9 +42,21 @@
     <h4>Add a brand to be tracked</h4>
     <div class = "form-group">
         <label for="name">Name of brand:</label>
-        <input class="form-control" type="text" name="name">
+        <input required class="form-control" type="text" name="name">
     </div>
     <button class="btn btn-success btn-xs" type="submit">Add</button>
+</form>
+
+<form class="delete" action = "/delete_all_stores" method = "post">
+    <h4>DELETE ALL STORES</h4>
+    <input class="form-control"  name="_method" type="hidden" value="delete">
+    <button class="btn btn-danger btn-xs" type="submit">Delete</button>
+</form>
+
+<form class="delete" action = "/delete_all_brands" method = "post">
+    <h4>DELETE ALL BRANDS</h4>
+    <input class="form-control"  name="_method" type="hidden" value="delete">
+    <button class="btn btn-danger btn-xs" type="submit">Delete</button>
 </form>
 
 {% endblock %}

@@ -27,9 +27,13 @@ A website to track which stores carry which brands of shoes. Users may view bran
 ####Database Setup
 
 ``` SQL
-* $ CREATE DATABASE shoes;
-* $ CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));
-* $ CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));
-* $ CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);
+$ CREATE DATABASE shoes;
+
+$ CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));
+
+$ CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));
+
+$ CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);
+
 
 ```

@@ -94,5 +94,15 @@
         return $app->redirect("/brands");
     });
 
+    $app->delete('/delete_all_stores', function() use ($app) {
+        Store::deleteAll();
+        return $app->redirect('/');
+    });
+
+    $app->delete('/delete_all_brands', function() use ($app) {
+        Brand::deleteAll();
+        return $app->redirect('/');
+    });
+
     return $app;
 ?>

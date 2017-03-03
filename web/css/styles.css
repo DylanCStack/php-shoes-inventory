@@ -29,3 +29,7 @@ hr, .clear, h1 {
 li {
     list-style: none;
 }
+
+a {
+    font-size: 25px;
+}

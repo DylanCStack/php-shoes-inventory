@@ -35,24 +35,24 @@
     <h4>Add a brand to be tracked</h4>
     <div class = "form-group">
         <label for="name">Name of brand:</label>
-        <input class="form-control" type="text" name="name">
+        <input required class="form-control" type="text" name="name">
     </div>
     <button class="btn btn-success btn-xs" type="submit">Add</button>
 </form>
 
 <form class="edit" action = "/edit_store/{{store.getId}}" method = "post">
     <h4>Edit {{store.getName}}</h4>
-    <input class="form-control" name="_method" type="hidden" value="patch">
+    <input required class="form-control" name="_method" type="hidden" value="patch">
     <div class = "form-group">
         <label for="new-name" value="{{store.getName}}">Edit the display name for {{store.getName}}:</label>
-        <input class="form-control" type="text" value="{{store.getName}}" name="new-name">
+        <input required class="form-control" type="text" value="{{store.getName}}" name="new-name">
     </div>
     <button class="btn btn-warning btn-xs" type="submit">Edit</button>
 </form>
 
 <form class="delete" action = "/delete_store/{{store.getId}}" method = "post">
     <h4>Delete {{store.getName}}</h4>
-    <input class="form-control" name="_method" type="hidden" value="delete">
+    <input required class="form-control" name="_method" type="hidden" value="delete">
     <button class="btn btn-danger btn-xs" type="submit">Delete</button>
 </form>
 
