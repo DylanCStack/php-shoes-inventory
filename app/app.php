@@ -76,6 +76,12 @@
         return $app->redirect("/store/".$id);
     });
 
+    $app->delete('/delete_store/{id}', function ($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();
+        return $app->redirect("/stores");
+    });
+
     $app->patch('/edit_brand/{id}', function ($id) use ($app) {
         $brand = Brand::find($id);
         $brand->update($_POST['new-name']);
