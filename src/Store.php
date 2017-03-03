@@ -31,6 +31,13 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        static function find($id)
+        {
+            $returned_store = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id={$id};");
+            return $returned_store->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Store", ['name', 'id'])[0];
+
+        }
+
         static function getAll()
         {
             $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");

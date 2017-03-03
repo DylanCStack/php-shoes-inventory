@@ -35,6 +35,21 @@
             $this->assertEquals([$new_store], $result);
         }
 
+        function test_find()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+
+            //Act
+            $new_store->save();
+            $result = Store::find($new_store->getId());
+
+            //Assert
+            $this->assertEquals($new_store, $result);
+        }
+
 
     }
 

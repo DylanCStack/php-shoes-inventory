@@ -11,16 +11,18 @@ A website to track which stores carry which brands of shoes. Users may view bran
 
 1. Program can add a new store/franchise to be tracked.
 2. Program can display all tracked stores/franchises.
-3. Program can edit a tracked store after it has been created.
-4. Program can untrack a store by deleting it form the database.
+3. Program can find and display a specific store.
+4. Program can edit a tracked store after it has been created.
+5. Program can untrack a store by deleting it form the database.
 
-5. Program can add a new brand of shoes to be tracked.
-6. Program can display all tracked brands.
-7. Program can edit a shoe brand after it has been added to the database.
-8. Program can untrack a brand by deleting it from the database.
+6. Program can add a new brand of shoes to be tracked.
+7. Program can find and display a specific brand of shoes.
+8. Program can display all tracked brands.
+9. Program can edit a shoe brand after it has been added to the database.
+10. Program can untrack a brand by deleting it from the database.
 
-9. Program can retrieve and display a list of all shoe brands carried in a store.
-10. Program can retrieve and display a list of all stores which carry a specific brand of shoe.
+11. Program can retrieve and display a list of all shoe brands carried in a store.
+12. Program can retrieve and display a list of all stores which carry a specific brand of shoe.
 
 ####Database Setup
 $ 'CREATE DATABASE shoes;'
