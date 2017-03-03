@@ -31,6 +31,11 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getId()}");
+        }
+
         function update($new_name)
         {
             $this->setName($new_name);

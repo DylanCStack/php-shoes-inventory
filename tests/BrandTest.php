@@ -65,6 +65,25 @@
             $result = Brand::find($new_brand->getId())->getName();
             $this->assertEquals("Snakey Sneaks", $result);
         }
+
+        function test_delete()
+        {
+            //Arrange
+            $name = "Y3";
+            $id = null;
+            $new_brand = new Brand($name, $id);
+            $new_brand->save();
+
+            $name2 = "Snakey Sneaks";
+            $id2 = null;
+            $new_brand2 = new Brand($name2, $id2);
+            $new_brand2->save();
+            //Act
+            $new_brand->delete();
+            //Assert
+            $result = Brand::getAll();
+            $this->assertEquals([$new_brand2], $result);
+        }
     }
 
 ?>
