@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}All Stores{% endblock %}
+
+{% block content %}
+<h1>{{store.getName}}</h1>
+
+<div class = "brands">
+{% if brands is not empty %}
+    <ul>
+    {% for brand in brands %}
+        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <h3>There are no brands currently associated with {{store.getName}} in our database</h3>
+{% endif %}
+</div>
+
+<form class="add-brand-to-store" action="/assign_brand/{{store.getId}}">
+    <h4>Add to what brands this store carries</h4>
+    <div class = "form-group">
+        <label for="name">Name of brand:</label>
+        <input type="text" name="name">
+    </div>
+    <button class="btn btn-success btn-xs" type="submit">Assign</button>
+</form>
+
+{% endblock %}
