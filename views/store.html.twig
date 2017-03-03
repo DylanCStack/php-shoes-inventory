@@ -9,7 +9,7 @@
 {% if brands is not empty %}
     <ul>
     {% for brand in brands %}
-        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</li>
+        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</a></li>
     {% endfor %}
     </ul>
 
@@ -18,13 +18,13 @@
 {% endif %}
 </div>
 
-<form class="add-brand-to-store" action="/assign_brand/{{store.getId}}">
+<form class="add-brand-to-store" action="/assign_brand/{{store.getId}}" method = "post">
     <h4>Add to what brands are carried by {{store.getName}}</h4>
     <div class = "form-group">
         <label for="name">Name of brand:</label>
         <select name = "brand">
         {% for brand in all_brands %}
-            <option value="brand.getId">{{brand.getName}}</option>
+            <option value="{{brand.getId}}">{{brand.getName}}</option>
         {% endfor %}
         </select>
     </div>

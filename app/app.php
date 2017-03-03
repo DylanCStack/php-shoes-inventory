@@ -51,5 +51,12 @@
         return $app['twig']->render("store.html.twig",["brands" => $store->getBrands(), "all_brands" => Brand::getAll(), "store" => $store]);
     });
 
+    $app->post('/assign_brand/{id}', function($id) use ($app) {
+        $store = Store::find($id);
+        $store->addBrand($_POST['brand']);
+
+        return $app->redirect("/store/".$id);
+    });
+
     return $app;
 ?>
