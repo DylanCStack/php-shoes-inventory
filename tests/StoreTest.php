@@ -85,6 +85,27 @@
             $this->assertEquals([$new_store2], $result);
         }
 
+        function test_getBrands()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+            $name2 = "Snakey Sneaks";
+            $id2 = null;
+            $new_brand = new Brand($name2, $id2);
+            $new_brand->save();
+
+            //Act
+            $new_store->addBrand($new_brand->getId());
+            $result = $new_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$new_brand], $result);
+        }
+
 
     }
 
