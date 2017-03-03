@@ -41,13 +41,29 @@
             $name = "Nike";
             $id = null;
             $new_store = new Store($name, $id);
+            $new_store->save();
 
             //Act
-            $new_store->save();
             $result = Store::find($new_store->getId());
 
             //Assert
             $this->assertEquals($new_store, $result);
+        }
+
+        function test_update()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+            //Act
+            $new_name = "Footlocker";
+            $new_store->update($new_name);
+            //Assert
+            $result = Store::find($new_store->getId())->getName();
+            $this->assertEquals("Footlocker", $result);
         }
 
 
