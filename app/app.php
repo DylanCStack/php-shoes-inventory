@@ -70,5 +70,11 @@
         return $app->redirect("/brand/".$id);
     });
 
+    $app->patch('/edit_store/{id}', function ($id) use ($app) {
+        $store = Store::find($id);
+        $store->update($_POST['new-name']);
+        return $app->redirect("/store/".$id);
+    });
+
     return $app;
 ?>

@@ -5,16 +5,16 @@ form {
     max-width: 46%;
 }
 
-.assign, .add-store {
+.assign, .add-store, .all-stores {
     float:left;
     width: 46%;
 }
 
-.add, .add-brand {
+.add, .add-brand, .all-brands {
     float:right;
     width: 46%;
 }
 
-hr {
+hr, .clear {
     clear:both;
 }
