@@ -5,7 +5,8 @@ form {
     max-width: 46%;
 }
 
-.assign, .add-store, .all-stores {
+
+.assign, .add-store, .all-stores, div.all-brands:nth-child(2) {
     float:left;
     width: 46%;
 }
@@ -15,6 +16,16 @@ form {
     width: 46%;
 }
 
-hr, .clear {
+hr, .clear, h1 {
     clear:both;
+}
+
+.delete, .edit {
+    float:left;
+    margin-top: 100px;
+    height: 155px;
+}
+
+li {
+    list-style: none;
 }
