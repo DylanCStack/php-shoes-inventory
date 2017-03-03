@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}All Stores{% endblock %}
+
+{% block content %}
+<h1>Brand Tracker</h1>
+
+<div class = "all-brands">
+{% if all_brands is not empty %}
+    <ul>
+    {% for brand in all_brands %}
+        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+{% endblock %}
