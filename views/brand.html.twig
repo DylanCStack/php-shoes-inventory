@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{brand.getName}}{% endblock %}
+
+{% block content %}
+<h1>{{brand.getName}}</h1>
+
+<div class = "brands">
+{% if stores is not empty %}
+    <ul>
+    {% for store in stores %}
+        <li><a href="/store/{{store.getId}}">{{store.getName}}</a></li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <h3>There are no stores currently associated with {{brand.getName}} in our database</h3>
+{% endif %}
+</div>
+
+<form class="assign" action="/assign_store/{{brand.getId}}" method = "post">
+    <h4>Add to what stores carry {{brand.getName}}</h4>
+    <div class = "form-group">
+        <label for="store">Name of store:</label>
+        <select name = "store">
+        {% for store in all_stores %}
+            <option value="{{store.getId}}">{{store.getName}}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-success btn-xs" type="submit">Assign</button>
+</form>
+
+<form class="add-store" action = "/add_store" method = "post">
+    <h4>Add a store to be tracked</h4>
+    <div class = "form-group">
+        <label for="name">Name of store:</label>
+        <input type="text" name="name">
+    </div>
+    <button class="btn btn-success btn-xs" type="submit">Add</button>
+</form>
+
+{% endblock %}

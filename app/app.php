@@ -39,6 +39,11 @@
         return $app['twig']->render("brands.html.twig",["all_brands" => Brand::getAll()]);
     });
 
+    $app->get('/brand/{id}', function($id) use ($app) {
+        $brand = Brand::find($id);
+        return $app['twig']->render("brand.html.twig",["brand" => $brand, "all_stores" => Store::getAll(), "stores" => $brand->getStores()]);
+    });
+
     $app->post('/add_brand', function() use ($app) {
         $new_brand = new Brand($_POST['name']);
         $new_brand->save();
@@ -56,6 +61,13 @@
         $store->addBrand($_POST['brand']);
 
         return $app->redirect("/store/".$id);
+    });
+
+    $app->post('/assign_store/{id}', function($id) use ($app) {
+        $brand = Brand::find($id);
+        $brand->addStore($_POST['store']);
+
+        return $app->redirect("/brand/".$id);
     });
 
     return $app;

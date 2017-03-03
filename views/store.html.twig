@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}All Stores{% endblock %}
+{% block title %}{{store.getName}}{% endblock %}
 
 {% block content %}
 <h1>{{store.getName}}</h1>
@@ -18,10 +18,10 @@
 {% endif %}
 </div>
 
-<form class="add-brand-to-store" action="/assign_brand/{{store.getId}}" method = "post">
+<form class="assign" action="/assign_brand/{{store.getId}}" method = "post">
     <h4>Add to what brands are carried by {{store.getName}}</h4>
     <div class = "form-group">
-        <label for="name">Name of brand:</label>
+        <label for="brand">Name of brand:</label>
         <select name = "brand">
         {% for brand in all_brands %}
             <option value="{{brand.getId}}">{{brand.getName}}</option>
@@ -29,6 +29,15 @@
         </select>
     </div>
     <button class="btn btn-success btn-xs" type="submit">Assign</button>
+</form>
+
+<form class="add-brand" action = "/add_brand" method = "post">
+    <h4>Add a brand to be tracked</h4>
+    <div class = "form-group">
+        <label for="name">Name of brand:</label>
+        <input type="text" name="name">
+    </div>
+    <button class="btn btn-success btn-xs" type="submit">Add</button>
 </form>
 
 {% endblock %}
