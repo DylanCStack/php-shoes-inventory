@@ -13,7 +13,7 @@ A website to track which stores carry which brands of shoes. Users may view bran
 2. Program can display all tracked stores/franchises.
 3. Program can find and display a specific store.
 4. Program can edit a tracked store after it has been created.
-5. Program can untrack a store by deleting it form the database.
+5. Program can untrack a store by deleting it from the database.
 
 6. Program can add a new brand of shoes to be tracked.
 7. Program can find and display a specific brand of shoes.

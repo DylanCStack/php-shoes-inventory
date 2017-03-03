@@ -13,7 +13,7 @@
 
         function getName()
         {
-            return $this->name();
+            return $this->name;
         }
         function setName($new_name)
         {
@@ -27,17 +27,20 @@
 
         function save()
         {
-
+            $GLOBALS['DB']->exec("INSERT INTO brands (name) VALUES ('{$this->getName()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function getAll()
         {
+            $returned_brands = $GLOBALS['DB']->query("SELECT * FROM brands;");
 
+            return $returned_brands->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Brand", ['name', 'id']);
         }
 
         static function deleteAll()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM brands;");
         }
     }
 ?>

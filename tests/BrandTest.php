@@ -22,7 +22,17 @@
 
         function test_save_and_getAll()
         {
-            //stuff
+            //Arrange
+            $name = "Y3";
+            $id = null;
+            $new_brand = new Brand($name, $id);
+
+            //Act
+            $new_brand->save();
+            $result = Brand::getAll();
+
+            //Assert
+            $this->assertEquals([$new_brand], $result);
         }
     }
 
