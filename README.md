@@ -25,7 +25,11 @@ A website to track which stores carry which brands of shoes. Users may view bran
 12. Program can retrieve and display a list of all stores which carry a specific brand of shoe.
 
 ####Database Setup
-$ 'CREATE DATABASE shoes;'
-$ 'CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));'
-$ 'CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));'
-$ 'CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);'
+
+``` SQL
+* $ `CREATE DATABASE shoes;`
+* $ `CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));`
+* $ `CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));`
+* $ `CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);`
+
+```
