@@ -22,7 +22,17 @@
 
         function test_save_and_getAll()
         {
-            //stuff
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+
+            //Act
+            $new_store->save();
+            $result = Store::getAll();
+
+            //Assert
+            $this->assertEquals([$new_store], $result);
         }
 
 
