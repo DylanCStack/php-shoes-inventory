@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<h1>Brand Tracker Homepage</h1>
+
+
+<div class = "all-stores">
+{% if all_stores is not empty %}
+    <ul>
+    {% for store in stores %}
+        <li><a href="/store/{{store.getId}}">{{store.getName}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+<div class = "all-brands">
+{% if all_brands is not empty %}
+    <ul>
+    {% for brand in brands %}
+        <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+<h3>Add a store or brand to be tracked by our user-generated database</h3>
+
+<form class="add-store" action = "/add_store" method = "post">
+    <h4>Add a store to be tracked</h4>
+    <div class = "form-group">
+        <label for="name">Name of store:</label>
+        <input type="text" name="name">
+    </div>
+    <button class="btn btn-success btn-xs" type="submit">Add</button>
+</form>
+
+<form class="add-brand" action = "/add_brand" method = "post">
+    <h4>Add a brand to be tracked</h4>
+    <div class = "form-group">
+        <label for="name">Name of brand:</label>
+        <input type="text" name="name">
+    </div>
+    <button class="btn btn-success btn-xs" type="submit">Add</button>
+</form>
+
+{% endblock %}

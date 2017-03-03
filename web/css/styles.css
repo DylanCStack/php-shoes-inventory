@@ -1,0 +1,6 @@
+form {
+    border: 2px double lightgrey;
+    margin-bottom: 25px;
+    padding:10px;
+    max-width: 40%;
+}
