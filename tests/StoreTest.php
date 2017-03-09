@@ -20,7 +20,7 @@
             Store::deleteAll();
         }
 
-        function test_save_and_getAll()
+        function test_save()
         {
             //Arrange
             $name = "Nike";
@@ -32,7 +32,27 @@
             $result = Store::getAll();
 
             //Assert
-            $this->assertEquals([$new_store], $result);
+            $this->assertEquals($new_store, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+            $name2 = "Nike";
+            $id2 = null;
+            $new_store2 = new Store($name2, $id2);
+            $new_store2->save();
+
+            //Act
+            $result = Store::getAll();
+
+            //Assert
+            $this->assertEquals([$new_store, $new_store2], $result);
         }
 
         function test_find()
@@ -85,7 +105,7 @@
             $this->assertEquals([$new_store2], $result);
         }
 
-        function test_getBrands()
+        function test_addBrand()
         {
             //Arrange
             $name = "Nike";
@@ -103,7 +123,35 @@
             $result = $new_store->getBrands();
 
             //Assert
-            $this->assertEquals([$new_brand], $result);
+            $this->assertEquals($new_brand, $result[0]);
+        }
+
+        function test_getBrands()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+            $name2 = "Snakey Sneaks";
+            $id2 = null;
+            $new_brand = new Brand($name2, $id2);
+            $new_brand->save();
+
+            $name3 = "Snakey Sneaks";
+            $id3 = null;
+            $new_brand3 = new Brand($name3, $id3);
+            $new_brand3->save();
+
+            //Act
+            $new_store->addBrand($new_brand->getId());
+            $new_store->addBrand($new_brand3->getId());
+
+            $result = $new_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$new_brand, $new_brand3], $result);
         }
 
 
