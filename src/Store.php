@@ -71,7 +71,12 @@
         {
             $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
 
-            return $returned_stores->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Store", ['name', 'id']);
+            if($returned_stores){
+                return $returned_stores->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Store", ['name', 'id']);
+
+            } else {
+                return [];
+            }
         }
 
         static function deleteAll()

@@ -35,6 +35,21 @@
             $this->assertEquals($new_store, $result[0]);
         }
 
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = "Nike";
+            $id = null;
+            $new_store = new Store($name, $id);
+            $new_store->save();
+
+            //Act
+            Store::deleteAll();
+            //Assert
+            $result = Store::getAll();
+            $this->assertEquals([], $result);
+        }
+
         function test_getAll()
         {
             //Arrange
